@@ -1,16 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ApexChart from './components/chartBar/index';
+import ApexChart from './components/chartBar/index.jsx';
 
 function App() {
   return (
     <>
-    <div >
-      <header >
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload. this!
         </p>
+        
+        
       </header>
       <body>
         <div>
