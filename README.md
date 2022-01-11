@@ -1,3 +1,10 @@
+# Run Djnago server and
+
+### `(tornado-web38) C:\Users\alves\Documents\GitHub\modulo2Rocketseat\tornado-web-charBar\plotbar>python manage.py runserver `
+# Run React plot Server
+
+### `PS C:\Users\alves\Documents\GitHub\modulo2Rocketseat\tornado-web-charBar\react-app> yarn start `
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

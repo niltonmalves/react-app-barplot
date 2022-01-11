@@ -5,7 +5,11 @@ import './index.css';
 import ReactApexChart from "react-apexcharts";
 import axios from "axios";
 
-
+// interface FoopProp {
+//   series : Array<[]>;
+//   name : string;
+//   data: Array<number>
+// }
 
 class ApexChart extends React.Component {
     constructor(props) {
@@ -69,7 +73,7 @@ class ApexChart extends React.Component {
           },
           tooltip: {
             y: {
-              formatter: function (val) {
+              formatter: function (val ) {
                 return val + "s"
               }
             }
