@@ -191,12 +191,41 @@ class ApexChart extends React.Component {
         <div>
             <div className="nav nav-tabs">
                    
-                    <button id= "PrintObjectTaskMeanTime" onClick={() => this.refreshList()}>
+                    <button onClick={() => this.refreshList()}>
                       PrintObjectTaskMeanTime
                     </button>
-                    <button id =" UpdatePlot" onClick={() =>this.upDateTaskMeanTime()}>
-                        Click me after " PrintObjectTaskMeanTime " to Update Plot
-                    </button>
+                    
+
+                    <button onClick={() => this.setState({ series: 
+                            [{
+                              name: 'ImageConverterProcessor',
+                              data: [taskTimeMeanObj.imageConverterProcessorSeg]
+                            }, {
+                              name: 'ObjectDetectionProcessor',
+                              data: [taskTimeMeanObj.objectDetectionProcessorSeg]
+                            }, {
+                              name: 'TextExtractionProcessor',
+                              data: [taskTimeMeanObj.textExtractionProcessorSeg]
+                            }, {
+                              name: 'FilterProcessedFiles',
+                              data: [taskTimeMeanObj.filterProcessedFilesSeg]
+                            }, {
+                              name: 'NonTextBlockFilter',
+                              data: [taskTimeMeanObj.nonTextBlockFilterSeg]
+                            },{
+                              name: 'CleanTextProcessor',
+                              data: [taskTimeMeanObj.cleanTextProcessorSeg]
+                            }],
+
+                    
+                    
+                    })}>
+                      Click me to Update Plot
+                    </button >
+
+                    {/* <button onClick={this.upDateTaskMeanTime()}>
+                      teste 3
+                    </button> */}
             </div>
         </div>    
     </div>

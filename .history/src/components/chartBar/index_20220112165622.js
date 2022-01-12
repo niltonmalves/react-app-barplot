@@ -12,7 +12,7 @@ import axios from "axios";
 // }
 
 let taskTimeMeanObj = {};
-taskTimeMeanObj.cleanTextProcessorSeg = 0;
+taskTimeMeanObj.cleanTextProcessorSeg = 50;
 taskTimeMeanObj.filterProcessedFilesSeg  = 0;
 taskTimeMeanObj.imageConverterProcessorSeg = 0;
 taskTimeMeanObj.nonTextBlockFilterSeg = 0;
@@ -27,7 +27,7 @@ function saveTaskTimes(res) {
   taskTimeMeanObj.objectDetectionProcessorSeg = res.data['ObjectDetectionProcessorSeg'];
   taskTimeMeanObj.textExtractionProcessorSeg = res.data['TextExtractionProcessorSeg'];
 
-  console.log(taskTimeMeanObj)
+  console.log(taskTimeMeanObj.cleanTextProcessorSeg)
 
 
 }
@@ -35,7 +35,19 @@ function saveTaskTimes(res) {
 
 let url ="http://127.0.0.1:8000/show/some_view"
 
+function axiosTest() {
+  // create a promise for the axios request
+  const promise = axios.get(url)
 
+  // using .then, create a new promise which extracts the data
+  const dataPromise = promise.then((response) => response.data)
+
+  // return it
+  return dataPromise
+}
+
+// now we can use that data from the outside!
+axiosTest()
 
 // const seriesTest: TaskTimeData[] =   [{
 //   name: 'ImageConverterProcessor',
@@ -66,12 +78,7 @@ class ApexChart extends React.Component {
       .then(res => saveTaskTimes(res))
       .catch((err) => console.log(err));
   };
-
-  
     
-  
-
-
     constructor(props) {
       super(props);
       
@@ -96,7 +103,7 @@ class ApexChart extends React.Component {
           data: [25]
         },{
           name: 'CleanTextProcessor',
-          data: [15]
+          data: [taskTimeMeanObj.cleanTextProcessorSeg]
         }
         ],
         options: {
@@ -150,33 +157,26 @@ class ApexChart extends React.Component {
       
       
       };
+    }
+     axiosTest2() {
+      const response = axios.get(url)
+      return response.data
+  }
+   
+    componentDidMount() {
+      this.refreshList();
+      this.setState({
+        'data':  44
+      });
+
+    }
     
 
+    toggle = () => {
+      this.setState({ modal: !this.state.modal });
+      console.log()
+    };
 
-    
-  };
-  upDateTaskMeanTime = (params) => {
-    // function refreshList();
-     this.setState({ series: 
-      [{
-        name: 'ImageConverterProcessor',
-        data: [taskTimeMeanObj.imageConverterProcessorSeg]
-      }, {
-        name: 'ObjectDetectionProcessor',
-        data: [taskTimeMeanObj.objectDetectionProcessorSeg]
-      }, {
-        name: 'TextExtractionProcessor',
-        data: [taskTimeMeanObj.textExtractionProcessorSeg]
-      }, {
-        name: 'FilterProcessedFiles',
-        data: [taskTimeMeanObj.filterProcessedFilesSeg]
-      }, {
-        name: 'NonTextBlockFilter',
-        data: [taskTimeMeanObj.nonTextBlockFilterSeg]
-      },{
-        name: 'CleanTextProcessor',
-        data: [taskTimeMeanObj.cleanTextProcessorSeg]
-      }]})}
    
     render() {
     
@@ -190,13 +190,23 @@ class ApexChart extends React.Component {
         />
         <div>
             <div className="nav nav-tabs">
-                   
-                    <button id= "PrintObjectTaskMeanTime" onClick={() => this.refreshList()}>
-                      PrintObjectTaskMeanTime
+                    <span
+                      onClick={() => this.displayCompleted(true)}
+                      className={this.state.viewCompleted ? "nav-link active" : "nav-link"}
+                    >
+                      Complete
+                    </span>
+                    <span
+                      onClick={() => this.displayCompleted(false)}
+                      className={this.state.viewCompleted ? "nav-link" : "nav-link active"}
+                    >
+                      Incomplete
+                    </span>
+                    <button onClick={() => this.refreshList()}>
+                      teste
                     </button>
-                    <button id =" UpdatePlot" onClick={() =>this.upDateTaskMeanTime()}>
-                        Click me after " PrintObjectTaskMeanTime " to Update Plot
-                    </button>
+                    <button onClick={() =>axiosTest()}> teste 2</button>
+                    <button onClick={() =>this.axiosTest2()}> teste 3</button>
             </div>
         </div>    
     </div>

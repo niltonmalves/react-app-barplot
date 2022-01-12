@@ -191,10 +191,10 @@ class ApexChart extends React.Component {
         <div>
             <div className="nav nav-tabs">
                    
-                    <button id= "PrintObjectTaskMeanTime" onClick={() => this.refreshList()}>
+                    <button onClick={() => this.refreshList()}>
                       PrintObjectTaskMeanTime
                     </button>
-                    <button id =" UpdatePlot" onClick={() =>this.upDateTaskMeanTime()}>
+                    <button onClick={() =>this.upDateTaskMeanTime()}>
                         Click me after " PrintObjectTaskMeanTime " to Update Plot
                     </button>
             </div>

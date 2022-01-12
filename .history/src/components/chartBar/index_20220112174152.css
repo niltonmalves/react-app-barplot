@@ -12,19 +12,9 @@ body {
       monospace;
   }
 
-  /* #PrintObjectTaskMeanTime {
+  #PrintObjectTaskMeanTime {
     background-color: rgb(242, 242, 253);
-    padding: 12px;
-    padding-right: 15px;
-    margin: 5px;
-    
-  } */
-
-  button {
-    background-color: rgb(242, 242, 253);
-    padding: 12px;
-    padding-right: 15px;
-    margin: 5px;
-    
+    padding: 2px;
+    padding-right: 5px;
   }
   
