@@ -11,32 +11,6 @@ import axios from "axios";
 //   data: Array<number>
 // }
 
-let taskTimeMeanObj = {};
-taskTimeMeanObj.cleanTextProcessorSeg = 0;
-taskTimeMeanObj.filterProcessedFilesSeg  = 0;
-taskTimeMeanObj.imageConverterProcessorSeg = 0;
-taskTimeMeanObj.nonTextBlockFilterSeg = 0;
-taskTimeMeanObj.objectDetectionProcessorSeg = 0;
-taskTimeMeanObj.textExtractionProcessorSeg = 0;
-
-function saveTaskTimes(res) {
-  taskTimeMeanObj.cleanTextProcessorSeg = res.data['CleanTextProcessorSeg'];
-  taskTimeMeanObj.filterProcessedFilesSeg= res.data['FilterProcessedFilesSeg'];
-  taskTimeMeanObj.imageConverterProcessorSeg =  res.data['ImageConverterProcessorSeg'];
-  taskTimeMeanObj.nonTextBlockFilterSeg = res.data['NonTextBlockFilterSeg'];
-  taskTimeMeanObj.objectDetectionProcessorSeg = res.data['ObjectDetectionProcessorSeg'];
-  taskTimeMeanObj.textExtractionProcessorSeg = res.data['TextExtractionProcessorSeg'];
-
-  console.log(taskTimeMeanObj.cleanTextProcessorSeg)
-}
-
-          // let cleanTextProcessorSeg = res.data['CleanTextProcessorSeg']
-          // let  = res.data['FilterProcessedFilesSeg']
-          // let  = res.data['ImageConverterProcessorSeg']
-          // let   = res.data['NonTextBlockFilterSeg']
-          // let   = res.data['ObjectDetectionProcessorSeg']
-          // let  = res.data['TextExtractionProcessorSeg']
-
 let url ="http://127.0.0.1:8000/show/some_view"
 
 function axiosTest() {
@@ -171,28 +145,20 @@ class ApexChart extends React.Component {
         // .get("/show/some_view/")
         // .then(res => this.setState({ todoList: res.data  }))
         // .then(res => console.log(res.data['CleanTextProcessorSeg']))
-        // .then(res => console.log(res.data))
-        .then(res => saveTaskTimes(res))
-        // .then(res => {
-        //   taskTimeMeanObj.cleanTextProcessorSeg = res.data['CleanTextProcessorSeg'];
-          // taskTimeMeanObj.filterProcessedFilesSeg= res.data['FilterProcessedFilesSeg'];
-          // taskTimeMeanObj.imageConverterProcessorSeg =  res.data['ImageConverterProcessorSeg'];
-          // taskTimeMeanObj.nonTextBlockFilterSeg = res.data['NonTextBlockFilterSeg'];
-          // taskTimeMeanObj.objectDetectionProcessorSeg = res.data['ObjectDetectionProcessorSeg'];
-          // taskTimeMeanObj.textExtractionProcessorSeg = res.data['TextExtractionProcessorSeg'];
-          // //  var {CleanTextProcessorSeg, FilterProcessedFilesSeg,ImageConverterProcessorSeg, NonTextBlockFilterSeg, ObjectDetectionProcessorSeg,TextExtractionProcessorSeg } = res.data;
-          // // let cleanTextProcessorSeg = res.data['CleanTextProcessorSeg']
-          // // let filterProcessedFilesSeg = res.data['FilterProcessedFilesSeg']
-          // // let imageConverterProcessorSeg = res.data['ImageConverterProcessorSeg']
-          // // let nonTextBlockFilterSeg  = res.data['NonTextBlockFilterSeg']
-          // // let objectDetectionProcessorSeg  = res.data['ObjectDetectionProcessorSeg']
-          // // let textExtractionProcessorSeg = res.data['TextExtractionProcessorSeg']
-          // // return CleanTextProcessorSeg
-          // console.log(taskTimeMeanObj);
-        // })
+        .then(res => console.log(res.data))
+        .then(res => {
+           let {CleanTextProcessorSeg } = res.data
+          // let cleanTextProcessorSeg = res.data['CleanTextProcessorSeg']
+          // let filterProcessedFilesSeg = res.data['FilterProcessedFilesSeg']
+          // let imageConverterProcessorSeg = res.data['ImageConverterProcessorSeg']
+          // let nonTextBlockFilterSeg  = res.data['NonTextBlockFilterSeg']
+          // let objectDetectionProcessorSeg  = res.data['ObjectDetectionProcessorSeg']
+          // let textExtractionProcessorSeg = res.data['TextExtractionProcessorSeg']
+          return CleanTextProcessorSeg
+        })
         // .then(console.log(this.props.todoList))
         .catch((err) => console.log(err));
-        // return this.props.todoList
+        return this.props.todoList
     };
 
     toggle = () => {

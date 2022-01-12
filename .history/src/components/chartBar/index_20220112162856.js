@@ -26,8 +26,6 @@ function saveTaskTimes(res) {
   taskTimeMeanObj.nonTextBlockFilterSeg = res.data['NonTextBlockFilterSeg'];
   taskTimeMeanObj.objectDetectionProcessorSeg = res.data['ObjectDetectionProcessorSeg'];
   taskTimeMeanObj.textExtractionProcessorSeg = res.data['TextExtractionProcessorSeg'];
-
-  console.log(taskTimeMeanObj.cleanTextProcessorSeg)
 }
 
           // let cleanTextProcessorSeg = res.data['CleanTextProcessorSeg']
@@ -171,8 +169,8 @@ class ApexChart extends React.Component {
         // .get("/show/some_view/")
         // .then(res => this.setState({ todoList: res.data  }))
         // .then(res => console.log(res.data['CleanTextProcessorSeg']))
-        // .then(res => console.log(res.data))
-        .then(res => saveTaskTimes(res))
+        .then(res => console.log(ypeof res))
+        // .then(res => console.log(t))
         // .then(res => {
         //   taskTimeMeanObj.cleanTextProcessorSeg = res.data['CleanTextProcessorSeg'];
           // taskTimeMeanObj.filterProcessedFilesSeg= res.data['FilterProcessedFilesSeg'];

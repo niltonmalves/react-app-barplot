@@ -27,7 +27,7 @@ function saveTaskTimes(res) {
   taskTimeMeanObj.objectDetectionProcessorSeg = res.data['ObjectDetectionProcessorSeg'];
   taskTimeMeanObj.textExtractionProcessorSeg = res.data['TextExtractionProcessorSeg'];
 
-  console.log(taskTimeMeanObj.cleanTextProcessorSeg)
+  console.log(taskTimeMeanObj)
 }
 
           // let cleanTextProcessorSeg = res.data['CleanTextProcessorSeg']

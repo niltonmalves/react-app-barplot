@@ -20,14 +20,12 @@ taskTimeMeanObj.objectDetectionProcessorSeg = 0;
 taskTimeMeanObj.textExtractionProcessorSeg = 0;
 
 function saveTaskTimes(res) {
-  taskTimeMeanObj.cleanTextProcessorSeg = res.data['CleanTextProcessorSeg'];
-  taskTimeMeanObj.filterProcessedFilesSeg= res.data['FilterProcessedFilesSeg'];
-  taskTimeMeanObj.imageConverterProcessorSeg =  res.data['ImageConverterProcessorSeg'];
-  taskTimeMeanObj.nonTextBlockFilterSeg = res.data['NonTextBlockFilterSeg'];
-  taskTimeMeanObj.objectDetectionProcessorSeg = res.data['ObjectDetectionProcessorSeg'];
-  taskTimeMeanObj.textExtractionProcessorSeg = res.data['TextExtractionProcessorSeg'];
-
-  console.log(taskTimeMeanObj.cleanTextProcessorSeg)
+  taskTimeMeanObj.cleanTextProcessorSeg = res['CleanTextProcessorSeg'];
+  taskTimeMeanObj.filterProcessedFilesSeg= res['FilterProcessedFilesSeg'];
+  taskTimeMeanObj.imageConverterProcessorSeg =  res['ImageConverterProcessorSeg'];
+  taskTimeMeanObj.nonTextBlockFilterSeg = res['NonTextBlockFilterSeg'];
+  taskTimeMeanObj.objectDetectionProcessorSeg = res['ObjectDetectionProcessorSeg'];
+  taskTimeMeanObj.textExtractionProcessorSeg = res['TextExtractionProcessorSeg'];
 }
 
           // let cleanTextProcessorSeg = res.data['CleanTextProcessorSeg']
@@ -171,8 +169,8 @@ class ApexChart extends React.Component {
         // .get("/show/some_view/")
         // .then(res => this.setState({ todoList: res.data  }))
         // .then(res => console.log(res.data['CleanTextProcessorSeg']))
-        // .then(res => console.log(res.data))
-        .then(res => saveTaskTimes(res))
+        .then(res => console.log(res.data))
+        .then(res => saveTaskTimes(res.data))
         // .then(res => {
         //   taskTimeMeanObj.cleanTextProcessorSeg = res.data['CleanTextProcessorSeg'];
           // taskTimeMeanObj.filterProcessedFilesSeg= res.data['FilterProcessedFilesSeg'];

@@ -26,8 +26,6 @@ function saveTaskTimes(res) {
   taskTimeMeanObj.nonTextBlockFilterSeg = res.data['NonTextBlockFilterSeg'];
   taskTimeMeanObj.objectDetectionProcessorSeg = res.data['ObjectDetectionProcessorSeg'];
   taskTimeMeanObj.textExtractionProcessorSeg = res.data['TextExtractionProcessorSeg'];
-
-  console.log(taskTimeMeanObj.cleanTextProcessorSeg)
 }
 
           // let cleanTextProcessorSeg = res.data['CleanTextProcessorSeg']
