@@ -144,7 +144,7 @@ class ApexChart extends React.Component {
          options={this.state.options} series={this.state.series} type="bar" height={350}
         //  series={series} type="bar" height={350}
         />
-        <div>
+        {/* <div>
             <div className="nav nav-tabs">
                     <span
                       onClick={() => this.displayCompleted(true)}
@@ -162,7 +162,7 @@ class ApexChart extends React.Component {
                       teste
                     </button>
             </div>
-        </div>    
+        </div>     */}
     </div>
   
 

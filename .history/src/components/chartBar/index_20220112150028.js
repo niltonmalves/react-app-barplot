@@ -6,37 +6,37 @@ import ReactApexChart from "react-apexcharts";
 import axios from "axios";
 // import ApexChart from "react-apexcharts"
 
-// interface TaskTimeData {
-//   name : string;
-//   data: Array<number>
-// }
+interface TaskTimeData {
+  name : string;
+  data: Array<number>
+}
 
 
 
-// const seriesTest: TaskTimeData[] =   [{
-//   name: 'ImageConverterProcessor',
-//   data: [44]
-// }, {
-//   name: 'ObjectDetectionProcessor',
-//   data: [53]
-// }, {
-//   name: 'TextExtractionProcessor',
-//   data: [12]
-// }, {
-//   name: 'FilterProcessedFiles',
-//   data: [9]
-// }, {
-//   name: 'NonTextBlockFilter',
-//   data: [25]
-// },{
-//   name: 'CleanTextProcessor',
-//   data: [9]
-// }];
+const seriesTest: TaskTimeData[] =   [{
+  name: 'ImageConverterProcessor',
+  data: [44]
+}, {
+  name: 'ObjectDetectionProcessor',
+  data: [53]
+}, {
+  name: 'TextExtractionProcessor',
+  data: [12]
+}, {
+  name: 'FilterProcessedFiles',
+  data: [9]
+}, {
+  name: 'NonTextBlockFilter',
+  data: [25]
+},{
+  name: 'CleanTextProcessor',
+  data: [9]
+}];
 
-// const ApexChart: React.FC = () => {
-//    const [series, setSeries] = useState<TaskTimeData[]>(seriesTest);
-class ApexChart extends React.Component {   
-    constructor(props) {
+const ApexChart: React.FC = () => {
+   const [series, setSeries] = useState<TaskTimeData[]>(seriesTest);
+   
+    /*constructor(props) {
       super(props);
 
       this.state = {
@@ -97,7 +97,7 @@ class ApexChart extends React.Component {
           },
           tooltip: {
             y: {
-              formatter: function (val) {
+              formatter: function (val ) {
                 return val + "s"
               }
             }
@@ -114,9 +114,9 @@ class ApexChart extends React.Component {
       
       
       };
-    }
+    } */
 
-   
+   /*
     componentDidMount() {
       this.refreshList();
     }
@@ -125,7 +125,7 @@ class ApexChart extends React.Component {
       axios
         .get("http://127.0.0.1:8000/show/some_view")
         // .get("/show/some_view/")
-        .then((res) => this.setState({ todoList: res.data  }))
+        .then((res) => this.setState({ todoList: res.data  }, console.log(res.data)))
         .catch((err) => console.log(err));
     };
 
@@ -134,17 +134,16 @@ class ApexChart extends React.Component {
     };
 
    
-    render() {
+   */ 
     
       return (
         
     console.log('teste'),    
     <div id="chart">
         <ReactApexChart
-         options={this.state.options} series={this.state.series} type="bar" height={350}
-        //  series={series} type="bar" height={350}
+         series={series} type="bar" height={350}
         />
-        <div>
+        {/* <div>
             <div className="nav nav-tabs">
                     <span
                       onClick={() => this.displayCompleted(true)}
@@ -162,12 +161,12 @@ class ApexChart extends React.Component {
                       teste
                     </button>
             </div>
-        </div>    
+        </div>     */}
     </div>
   
 
-  );
-}
-}
+     );
+    }
   
-export default ApexChart
+export default ApexChart;
+
